@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deepseek-r1-70b
+  namespace: deepseek-r1
+spec:
+  selector:
+    matchLabels:
+      name: deepseek-r1-70b
+  template:
+    metadata:
+      labels:
+        name: deepseek-r1-70b
+        app: ollama-serve
+    spec:
+      containers:
+      - name: deepseek-r1-70b
+        image: ollama/ollama:latest
+        env:
+          - name: OLLAMA_MODELS
+            value: /mnt/models-pvc/deepseek-70B
+          - name: HOME
+            value: /mnt/models-pvc/
+          - name: OLLAMA_MODEL_NAME
+            value: "deepseek-r1:70b"
+        command: ["ollama"]
+        args: ["serve"]
+        ports:
+        - name: http
+          containerPort: 11434
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /mnt/models-pvc/
+          name: model-volume
+      restartPolicy: Always
+      volumes:
+      - name: model-volume
+        persistentVolumeClaim:
+          claimName: deepseek-70b

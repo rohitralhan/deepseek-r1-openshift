@@ -1,0 +1,6 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: "deepseek-r1"
+  labels:
+    name: "deepseek-r1"

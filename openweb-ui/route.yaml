@@ -1,0 +1,12 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: open-webui
+  namespace: deepseek-r1
+spec:
+  to:
+    kind: Service
+    name: open-webui
+  tls: null
+  port:
+    targetPort: 8080
