@@ -163,8 +163,8 @@ You can either create and apply the YAML files using the command below or run ab
 - oc apply -f [service.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/service.yaml)
 - oc apply -f [route.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/route.yaml)
 
-Confirm if the ollama pod is running:
-oc get pods -n deepseek-r1
+Confirm if the ollama pod is running: ```oc get pods -l app=ollama-server -n deepseek-r1```
+
 
 ----------
 
@@ -289,8 +289,7 @@ You can either create and apply the YAML files using the command below or run ab
 - oc apply -f [service.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/service.yaml)
 - oc apply -f [route.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/route.yaml)
 
-Check if the openweb-ui pod is running:
-oc get pods -n deepseek-r1
+Check if the openweb-ui pod is running: ```oc get pods -l app=open-webui -n deepseek-r1```
  
 ----------
 
