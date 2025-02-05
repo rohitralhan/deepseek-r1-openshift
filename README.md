@@ -63,6 +63,7 @@ Ollama is required to run DeepSeek R1 70B. We’ll create a persistent volume cl
         name: "deepseek-r1"
 
 ### PVC YAML for Ollama
+_Remember to update the storageClassName and accessMode based on your environment_
 
     kind: PersistentVolumeClaim
     apiVersion: v1
@@ -182,8 +183,8 @@ After starting Ollama, you have to download and run the DeepSeek R1 70B model. R
  3. You can also run the following command to check that the model is up and running `oc exec -it $(oc get pods -l app=ollama-server -o jsonpath="{.items[0].metadata.name}") -- /bin/sh -c "ollama list"` you should see the output similar to the one below:
  
 	``` 
-	NAME  					ID  			SIZE  		MODIFIED
-	deepseek-r1:1.5b  		a42b25d8c10a  	1.1 GB  	23 minutes ago 
+	NAME  				ID  		SIZE  		MODIFIED
+	deepseek-r1:70b  		a42b25d8c10a  	42 GB  		23 minutes ago 
 	```
 
 ## Step 4: Deploying OpenWeb UI
