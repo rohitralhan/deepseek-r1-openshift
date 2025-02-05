@@ -22,7 +22,7 @@ spec:
           protocol: TCP
         env:
         - name: OLLAMA_BASE_URL
-          value: "http://deepseek-r1-70b.ai-dsp.svc.cluster.local:80"
+          value: "http://deepseek-r1-svc.deepseek-r1.svc.cluster.local"
         - name: WEBUI_SECRET_KEY
           value: "Secretkey"            
         volumeMounts:
