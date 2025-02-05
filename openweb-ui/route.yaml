@@ -9,4 +9,4 @@ spec:
     name: open-webui
   tls: null
   port:
-    targetPort: 8080
+    targetPort: http
