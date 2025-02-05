@@ -33,7 +33,7 @@ Before getting started, ensure you have:
 ## Step 1: Setting Up the OpenShift Environment
 
 1.  Log in to your OpenShift cluster:  
-    oc login --server=<OPENSHIFT_API_URL> --token=<YOUR_ACCESS_TOKEN>
+    ```oc login --server=<OPENSHIFT_API_URL> --token=<YOUR_ACCESS_TOKEN>```
 2.  Create a new project:  
     oc new-project deepseek-ai
 3.  Verify the project is set up correctly:  
@@ -42,14 +42,14 @@ Before getting started, ensure you have:
 ----------
 
 ## Step 2: Deploying Ollama on Red Hat OpenShift
-All the files are on [github](https://github.com/rohitralhan/deepseek-r1-openshift). You can directly run it by simply cloning/downloading the files from github and running the **`oc apply -k .`** from the root folder. To delete the installation run **`oc delete -k .`** from the root folder. Alternatively, you can follow along to create the resources step by step.
+All the files are on [GitHub](https://github.com/rohitralhan/deepseek-r1-openshift). You can directly run it by simply cloning/downloading the files from GitHub and running the **`oc apply -k .`** from the root folder. To delete the installation run **`oc delete -k .`** from the root folder. Alternatively, you can follow along to create the resources step by step.
 
 Ollama is required to run DeepSeek R1 70B. We’ll create a persistent volume claim, deployment, service, and route for it. The deployment will require these three files:
 
--   pvc.yaml for persistent to download and store the DeepSeek R1 70B (about 45G)
--   deployment.yaml for the DeepSeek R1 70B model deployment.
--   service.yaml to expose the deployment as a service within the cluster.
--   route.yaml to create an OpenShift route for external access.
+-   [pvc.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/pvc.yaml) for persistent to download and store the DeepSeek R1 70B (about 45G)
+-   [deployment.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/deployment.yaml) for the DeepSeek R1 70B model deployment.
+-   [service.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/service.yaml) to expose the deployment as a service within the cluster.
+-   [route.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/route.yaml) to create an OpenShift route for external access.
 
 ---
 
@@ -76,7 +76,7 @@ _Remember to update the storageClassName and accessMode based on your environmen
       resources:
         requests:
           storage: 100Gi
-      storageClassName: freenas-nfs-csi
+      storageClassName: nfs-csi
       volumeMode: Filesystem
 
 ### Deployment YAML for Ollama
@@ -191,10 +191,10 @@ After starting Ollama, you have to download and run the DeepSeek R1 70B model. R
 
 OpenWeb UI provides an interface to interact with the model. We’ll create a persistent volume claim, deployment, service, and route for it. The deployment will require these three files:
 
--   pvc.yaml for persistent to download and store the DeepSeek R1 70B
--   deployment.yaml for the DeepSeek R1 70B model deployment.
--   service.yaml to expose the deployment as a service within the cluster.
--   route.yaml to create an OpenShift route for external access
+-   [pvc.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/pvc.yaml) for persistent to download and store the DeepSeek R1 70B
+-   [deployment.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/deployment.yaml) for the DeepSeek R1 70B model deployment.
+-   [service.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/service.yaml) to expose the deployment as a service within the cluster.
+-   [route.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/route.yaml) to create an OpenShift route for external access
     
 
 ### PVC YAML for OpenWeb UI
