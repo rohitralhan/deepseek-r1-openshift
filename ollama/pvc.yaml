@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: deepseek-70b
+  name: deepseek-r1-pvc
   namespace: deepseek-r1
 spec:
   accessModes:
