@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: deepseek-r1-70b
+  name: deepseek-r1-svc
   namespace: deepseek-r1
 spec:
   type: ClusterIP
   selector:
-    name: deepseek-r1-70b
+    name: deepseek-r1-deploy
   ports:
   - port: 80
     name: http
-    targetPort: http
+    targetPort: 11434
     protocol: TCP
