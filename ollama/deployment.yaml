@@ -11,7 +11,7 @@ spec:
     metadata:
       labels:
         name: deepseek-r1-70b
-        app: ollama-serve
+        app: ollama-server
     spec:
       containers:
       - name: deepseek-r1-70b
