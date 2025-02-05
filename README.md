@@ -156,11 +156,11 @@ Ollama is required to run DeepSeek R1 70B. We’ll create a persistent volume cl
 
 You can either create and apply the YAML files using the command below or run above yaml from the `Import section` of the Red Hat OpenShift web console:
 
-oc apply -f [namespace.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/namespace.yaml)
-oc apply -f [pvc.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/pvc.yaml)
-oc apply -f [deployment.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/deployment.yaml)
-oc apply -f [service.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/service.yaml)
-oc apply -f [route.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/route.yaml)
+- oc apply -f [namespace.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/namespace.yaml)
+- oc apply -f [pvc.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/pvc.yaml)
+- oc apply -f [deployment.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/deployment.yaml)
+- oc apply -f [service.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/service.yaml)
+- oc apply -f [route.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/ollama/route.yaml)
 
 Confirm if the ollama pod is running:
 oc get pods -n deepseek-r1
@@ -176,7 +176,7 @@ After starting Ollama, you have to download and run the DeepSeek R1 70B model. R
  1. Run this command `oc exec -it $(oc get pods -l app=ollama-server -o jsonpath="{.items[0].metadata.name}") -- /bin/sh -c "ollama run deepseek-r1:70b"`
  2. Once the model is downloaded it will run and present a prompt `>>>` type `/bye` to exit. This confirms that the model is up and running
 
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfwzZ7ov39vPMClZ0kkZXXd811gUs26yWfPdkceAAviwaUjLa1JRE2U7pJtLdY8XmTHDdqguOHhPHQRn9x7pk_1XKapQCI4HSRZLeUjfIBvkNxBaIsvz6v_S0XzWyGfNKzFYCLpKA?key=4hgiTo2KqihXQD2lOgQsMMyb)
+![](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/images/deepseek-download.png)
 <p align=center>Downloading DeepSeek-R1 </p>
 
  3. You can also run the following command to check that the model is up and running `oc exec -it $(oc get pods -l app=ollama-server -o jsonpath="{.items[0].metadata.name}") -- /bin/sh -c "ollama list"` you should see the output similar to the one below:
@@ -283,10 +283,10 @@ spec:
 ```
 You can either create and apply the YAML files using the command below or run above yaml from the `Import section` of the Red Hat OpenShift web console:
 
-oc apply -f [pvc.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/pvc.yaml)
-oc apply -f [deployment.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/deployment.yaml)
-oc apply -f [service.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/service.yaml)
-oc apply -f [route.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/route.yaml)
+- oc apply -f [pvc.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/pvc.yaml)
+- oc apply -f [deployment.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/deployment.yaml)
+- oc apply -f [service.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/service.yaml)
+- oc apply -f [route.yaml](https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/openweb-ui/route.yaml)
 
 Check if the openweb-ui pod is running:
 oc get pods -n deepseek-r1
