@@ -1,5 +1,5 @@
 
-# DeepSeek on OpenShift with OpenWebUI and Ollama
+# DeepSeek with Ollam & OpenWebUI on OpenShift
 
 <p align="center"><img src="https://raw.githubusercontent.com/rohitralhan/deepseek-r1-openshift/refs/heads/main/images/combined.png" /></p>
 
